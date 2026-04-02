@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Unimar.Api/Unimar.Api.csproj" Id="4737b047-5fc5-4196-a272-c60490b1a095" />
+  <Project Path="Unimar.Console/Unimar.Dominio.csproj" />
+  <Project Path="Unimar.Infra.FireBase/Unimar.Infra.FireBase.csproj" />
+  <Project Path="Unimar.Ioc/Unimar.Ioc.csproj" Id="40eac832-b31a-4932-b810-9a76216c4fdb" />
+</Solution>

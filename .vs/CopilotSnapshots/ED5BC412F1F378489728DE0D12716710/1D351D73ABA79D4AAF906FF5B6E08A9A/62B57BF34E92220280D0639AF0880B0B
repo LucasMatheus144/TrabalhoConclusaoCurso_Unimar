@@ -1,0 +1,32 @@
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unimar.Console.Entidade;
+
+namespace Unimar.Dominio.Repositorio
+{
+    public class ProfessorRepositorio : IRepositorio<Professor>
+    {
+        public Task<Professor> AdicionarAsync(Professor entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Professor> AtualizarAsync(Professor entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> ExcluirAsync(long id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Professor> ObterPorIdAsync(long id)
+       
+
+        public Task<IEnumerable<Professor>> ObterTodosAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}

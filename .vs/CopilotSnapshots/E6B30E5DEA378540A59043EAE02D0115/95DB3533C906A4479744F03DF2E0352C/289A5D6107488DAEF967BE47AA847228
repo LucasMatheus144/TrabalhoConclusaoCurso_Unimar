@@ -1,0 +1,117 @@
+﻿using Unimar.Console.Entidade;
+using Unimar.Dominio.Repositorio;
+using Unimar.Dominio.ViewModel;
+
+namespace Unimar.Dominio.Servicos
+{
+    public class ProfessorServico : IProfessorServico
+    {
+        private IRepositorio<Professor> _repositorio;
+
+        public ProfessorServico(IRepositorio<Professor> repositorio)
+        {
+            _repositorio = repositorio;
+        }
+
+        public Task<IEnumerable<Professor>> Listar()
+        {
+            return _repositorio.ObterTodosAsync();
+        }
+
+        public async Task<ResponseModel<Professor>> Adicionar(Professor professor)
+        {
+            try
+            {
+                var tentaIncluir = await _repositorio.AdicionarAsync(professor);
+
+                if (tentaIncluir != null)
+                {
+                    return new ResponseModel<Professor>
+                    {
+                        StatusCode = 200,
+                        Sucesso = true,
+                        Data = tentaIncluir
+                    };
+                }
+
+                return new ResponseModel<Professor>
+                {
+                    StatusCode = 400,
+                    Sucesso = false,
+                    Data = tentaIncluir,
+                    MensagensErro = new List<MensagemErro>()
+                    {
+                        new MensagemErro("Professor","Erro ao incluir")
+                    }                    
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<Professor>
+                {
+                    StatusCode = 500,
+                    Sucesso = false,
+                    Data = null,
+                    MensagensErro = new List<MensagemErro>()
+                    {
+                       new MensagemErro("Professor", $"Ocorreu um erro ao incluir o professor: {ex.Message}")
+
+                    }
+                };
+            }    
+        }
+
+        public async Task<ResponseModel<Professor>> Atualizar(Professor professor)
+        {
+            try
+            {
+                var tentaEditar = await _repositorio.AtualizarAsync(professor);
+
+                if (tentaEditar != null)
+                {
+                    return new ResponseModel<Professor>
+                    {
+                        StatusCode = 200,
+                        Sucesso = true,
+                        Data = tentaEditar
+                    };
+                }
+
+                return new ResponseModel<Professor>
+                {
+                    StatusCode = 400,
+                    Sucesso = false,
+                    Data = tentaEditar,
+                    MensagensErro = new List<MensagemErro>()
+                    {
+                        new MensagemErro("Professor","Erro ao editar")
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseModel<Professor>
+                {
+                    StatusCode = 500,
+                    Sucesso = false,
+                    Data = null,
+                    MensagensErro = new List<MensagemErro>()
+                    {
+                       new MensagemErro("Professor", $"Ocorreu um erro ao editar o professor: {ex.Message}")
+
+                    }
+                };
+            }
+        }
+
+        public async Task<bool> Excluir(long id)
+        {
+            return await _repositorio.ExcluirAsync(id);
+        }
+
+       public Task<Professor> GerPorId(long id)
+        {
+            return _repositorio.ObterPorIdAsync(id);
+        }
+    }
+}

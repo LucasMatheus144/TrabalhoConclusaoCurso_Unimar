@@ -1,0 +1,54 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Unimar.Console.Entidade;
+using Unimar.Dominio.Servicos;
+
+namespace Unimar.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProfessorController : ControllerBase
+    {
+        private readonly ProfessorServico _servico;
+
+        public ProfessorController(ProfessorServico servico)
+        {
+            _servico = servico;
+        }
+
+        [HttpPost]
+        public IActionResult IncluirProfessor([FromBody] Professor professor)
+        {
+            var resultado = _servico.Adicionar(professor).Result;
+
+            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+
+        [HttpPut]
+        public IActionResult EditarProfessor([FromBody] Professor professor)
+        {
+            var resultado = _servico.Adicionar(professor).Result;
+            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+
+        [HttpDelete]
+        public IActionResult ExcluirProfessor([FromBody] Professor professor)
+        {
+            var resultado = _servico.Adicionar(professor).Result;
+            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+
+        [HttpGet]
+        public IActionResult ListarProfessores()
+        {
+            var resultado = _servico.Listar().Result;
+            return Ok(resultado);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult ObterProfessorPorId(long id)
+        {
+            var resultado = _servico.GerPorId(id);
+            return resultado != null ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+    }
+}

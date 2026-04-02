@@ -1,0 +1,17 @@
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.csproj.AssemblyReference.cache
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.AssemblyInfoInputs.cache
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.AssemblyInfo.cs
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.csproj.CoreCompileInputs.cache
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Ioc.deps.json
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Ioc.dll
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Ioc.pdb
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Dominio.dll
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Infra.FireBase.dll
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Dominio.pdb
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\bin\Debug\net8.0\Unimar.Infra.FireBase.pdb
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.csproj.Up2Date
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.dll
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\refint\Unimar.Ioc.dll
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\Unimar.Ioc.pdb
+C:\Users\Interfocus\source\repos\TCCProfessores\Unimar.Ioc\obj\Debug\net8.0\ref\Unimar.Ioc.dll
