@@ -4,6 +4,6 @@ namespace Unimar.Dominio.Repositorio
 {
     public interface IRepositorio<T> : IRepositorioBase<T>
     {
-        Task<T> ObterPorIdAsync(long id);
+        Task<T> ObterPorIdAsync(Guid id);
     }
 }

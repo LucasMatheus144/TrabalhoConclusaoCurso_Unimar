@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Unimar.Console.Entidade;
-using Unimar.Dominio.Servicos;
+using Unimar.Dominio.Interfaces;
 
 namespace Unimar.Api.Controllers
 {
@@ -16,39 +16,41 @@ namespace Unimar.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult IncluirProfessor([FromBody] Professor professor)
+        public async Task<IActionResult> IncluirProfessor([FromBody] Professor professor)
         {
-            var resultado = _servico.Adicionar(professor).Result;
+            var resultado = await _servico.Adicionar(professor);
 
-            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
-        }
-
-        [HttpPut]
-        public IActionResult EditarProfessor([FromBody] Professor professor)
-        {
-            var resultado = _servico.Adicionar(professor).Result;
-            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
-        }
-
-        [HttpDelete]
-        public IActionResult ExcluirProfessor([FromBody] Professor professor)
-        {
-            var resultado = _servico.Adicionar(professor).Result;
             return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
         }
 
         [HttpGet]
-        public IActionResult ListarProfessores()
+        public async Task<IActionResult> ListarProfessores()
         {
-            var resultado = _servico.Listar().Result;
+            var resultado = await _servico.Listar();
             return Ok(resultado);
         }
 
         [HttpGet("{id}")]
-        public IActionResult ObterProfessorPorId(long id)
+        public async Task<IActionResult> ObterProfessorPorId(Guid id)
         {
-            var resultado = _servico.GerPorId(id);
-            return resultado != null ? Ok(resultado) : UnprocessableEntity(resultado);
+            var resultado = await _servico.GerPorId(id);
+            return resultado != null ? Ok(resultado) : NotFound();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> EditarProfessor([FromBody] Professor professor)
+        {
+            var resultado = await _servico.Atualizar(professor);
+            return resultado.Sucesso ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> ExcluirProfessor(Guid id)
+        {
+            var resultado = await _servico.Excluir(id);
+            return resultado ? Ok(resultado) : UnprocessableEntity(resultado);
+        }
+
+        
     }
 }

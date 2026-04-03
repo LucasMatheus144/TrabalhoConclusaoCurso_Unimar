@@ -5,6 +5,6 @@
         Task<IEnumerable<TEntity>> ObterTodosAsync();
         Task<TEntity> AdicionarAsync(TEntity entity);
         Task<TEntity> AtualizarAsync(TEntity entity);
-        Task<bool> ExcluirAsync(long id);
+        Task<bool> ExcluirAsync(Guid id);
     }
 }

@@ -2,7 +2,7 @@
 using Google.Cloud.Firestore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Unimar.Console.Entidade;
+using Unimar.Dominio.Interfaces;
 using Unimar.Dominio.Repositorio;
 using Unimar.Dominio.Servicos;
 using Unimar.Infra.FireBase;

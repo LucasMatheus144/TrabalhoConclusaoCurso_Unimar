@@ -12,7 +12,15 @@ namespace Unimar.Infra.FireBase.Repositorio
         {
             try
             {
-                var professor = await db.Collection(Collection).AddAsync(entity);
+                var professor = await db.Collection(Collection).AddAsync(new
+                {
+                    id = entity.Id.ToString(),
+                    ativo = entity.Ativo,
+                    nome = entity.Nome,
+                    disciplina = entity.Disciplina,
+                    email = entity.Email,
+                    datacadastro = entity.DataCadastro == null ? null : entity.DataCadastro
+                });
 
                 if (professor != null)
                 {
@@ -30,7 +38,16 @@ namespace Unimar.Infra.FireBase.Repositorio
         {
             try
             {
-                var professor = await db.Collection(Collection).Document(entity.Id.ToString()).SetAsync(entity);
+                //caso o documento não encontre o ID , ele da um UPSERT
+                var professor = await db.Collection(Collection).Document(entity.Id.ToString()).SetAsync(new
+                {
+                    ativo = entity.Ativo,
+                    nome = entity.Nome,
+                    disciplina = entity.Disciplina,
+                    email = entity.Email
+                }, SetOptions.MergeAll);
+
+
                 if (professor != null)
                 {
                     return entity;
@@ -45,7 +62,7 @@ namespace Unimar.Infra.FireBase.Repositorio
             }
         }
 
-        public async Task<bool> ExcluirAsync(long id)
+        public async Task<bool> ExcluirAsync(Guid id)
         {
             try
             {
@@ -64,7 +81,7 @@ namespace Unimar.Infra.FireBase.Repositorio
             }
         }
 
-        public async Task<Professor> ObterPorIdAsync(long id)
+        public async Task<Professor> ObterPorIdAsync(Guid id)
         {
             try
             {
@@ -87,7 +104,7 @@ namespace Unimar.Infra.FireBase.Repositorio
             try
             {
                 var professores = await db.Collection(Collection).GetSnapshotAsync();
-                if (professores != null)
+                if (professores != null && professores.Count() > 0)
                 {
                     return professores.Documents.Select(doc => doc.ConvertTo<Professor>()).ToList();
                 }

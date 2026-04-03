@@ -1,4 +1,5 @@
 ﻿using Unimar.Console.Entidade;
+using Unimar.Dominio.Interfaces;
 using Unimar.Dominio.Repositorio;
 using Unimar.Dominio.ViewModel;
 
@@ -29,7 +30,6 @@ namespace Unimar.Dominio.Servicos
                     return new ResponseModel<Professor>
                     {
                         StatusCode = 200,
-                        Sucesso = true,
                         Data = tentaIncluir
                     };
                 }
@@ -37,21 +37,20 @@ namespace Unimar.Dominio.Servicos
                 return new ResponseModel<Professor>
                 {
                     StatusCode = 400,
-                    Sucesso = false,
-                    Data = tentaIncluir,
+                    Data = professor,
                     MensagensErro = new List<MensagemErro>()
                     {
                         new MensagemErro("Professor","Erro ao incluir")
-                    }                    
+                    }
                 };
+
             }
             catch (Exception ex)
             {
                 return new ResponseModel<Professor>
                 {
                     StatusCode = 500,
-                    Sucesso = false,
-                    Data = null,
+                    Data = professor,
                     MensagensErro = new List<MensagemErro>()
                     {
                        new MensagemErro("Professor", $"Ocorreu um erro ao incluir o professor: {ex.Message}")
@@ -72,7 +71,6 @@ namespace Unimar.Dominio.Servicos
                     return new ResponseModel<Professor>
                     {
                         StatusCode = 200,
-                        Sucesso = true,
                         Data = tentaEditar
                     };
                 }
@@ -80,7 +78,6 @@ namespace Unimar.Dominio.Servicos
                 return new ResponseModel<Professor>
                 {
                     StatusCode = 400,
-                    Sucesso = false,
                     Data = tentaEditar,
                     MensagensErro = new List<MensagemErro>()
                     {
@@ -93,7 +90,6 @@ namespace Unimar.Dominio.Servicos
                 return new ResponseModel<Professor>
                 {
                     StatusCode = 500,
-                    Sucesso = false,
                     Data = null,
                     MensagensErro = new List<MensagemErro>()
                     {
@@ -104,12 +100,12 @@ namespace Unimar.Dominio.Servicos
             }
         }
 
-        public async Task<bool> Excluir(long id)
+        public async Task<bool> Excluir(Guid id)
         {
             return await _repositorio.ExcluirAsync(id);
         }
 
-       public Task<Professor> GerPorId(long id)
+       public Task<Professor> GerPorId(Guid id)
         {
             return _repositorio.ObterPorIdAsync(id);
         }
