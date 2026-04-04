@@ -29,9 +29,7 @@ O aluno deverá:
 
 - Criar um projeto no Firebase
 - Ativar o **Cloud Firestore**
-- Criar uma coleção chamada:
-
-
+<img width="1071" height="633" alt="image" src="https://github.com/user-attachments/assets/c48ecc5d-8eb5-46cb-85ed-f522b0ed86e8" />
 
 ---
 
@@ -48,6 +46,9 @@ Cada documento da coleção deve conter:
 | ativo          | boolean  | Status do professor               |
 | dataCadastro   | timestamp| Data de criação (automática)      |
 
+<img width="1555" height="683" alt="image" src="https://github.com/user-attachments/assets/447d03cb-cbfb-4804-85b2-3bad00564837" />
+<img width="1594" height="758" alt="image" src="https://github.com/user-attachments/assets/ab6db7e4-6b35-4bd2-815d-6eb8b329e7f7" />
+
 ---
 
 ## 🛠️ Backend - API .NET Core
@@ -59,8 +60,9 @@ Cada documento da coleção deve conter:
 | POST   | /api/professor           | Criar professor          |
 | GET    | /api/professor           | Listar professores       |
 | GET    | /api/professor/{id}      | Buscar por ID            |
-| PUT    | /api/professor/{id}      | Atualizar professor      |
+| PUT    | /api/professor/          | Atualizar professor      |
 | DELETE | /api/professor/{id}      | Remover professor        |
+<img width="1898" height="980" alt="image" src="https://github.com/user-attachments/assets/d03fcd79-a0c0-4776-821d-5704cc02cb48" />
 
 ---
 
@@ -73,15 +75,29 @@ A API deve implementar consultas utilizando o Firestore:
 - Ordenar por nome
 - Limitar quantidade de resultados
 - Consulta combinada (ex: ativos + ordenado)
-
----
-
-### 📌 Exemplos de Queries
-
-#### 🔹 Buscar professores ativos
+<img width="784" height="197" alt="image" src="https://github.com/user-attachments/assets/523d4b0c-4494-4193-9138-08249cf4bb1f" />
 
 
 ---
 
-#### 🔹 Filtros
+### 📌 Exemplos de Request
 
+--Post
+<img width="1071" height="937" alt="image" src="https://github.com/user-attachments/assets/635bcefc-43fd-45a6-8188-99e8f99d7b1f" />
+
+
+--Gets
+<img width="1108" height="896" alt="image" src="https://github.com/user-attachments/assets/192761f4-1d17-4f9c-8be6-4cc43b417f2c" />
+<img width="1060" height="884" alt="image" src="https://github.com/user-attachments/assets/9336daf8-12ab-4181-9709-bffddd7d6060" />
+<img width="1111" height="904" alt="image" src="https://github.com/user-attachments/assets/48114a50-573b-40d6-82de-102eebccc30b" />
+<img width="1075" height="753" alt="image" src="https://github.com/user-attachments/assets/3e66fb12-8d92-45ea-b38a-de49ed3775ea" />
+
+--Put
+<img width="1066" height="946" alt="image" src="https://github.com/user-attachments/assets/edcf8d5c-23f8-40df-8157-4c39027bbc80" />
+
+--Delete
+Antes
+<img width="1565" height="680" alt="image" src="https://github.com/user-attachments/assets/90cc80fb-dbdc-4db6-b094-e94896321b64" />
+depois
+<img width="1072" height="720" alt="image" src="https://github.com/user-attachments/assets/1f6f55de-3ac0-45cd-ac88-5306facc3a36" />
+<img width="1625" height="720" alt="image" src="https://github.com/user-attachments/assets/52b1eb23-9c8d-41aa-9238-a4baa7715d3b" />
