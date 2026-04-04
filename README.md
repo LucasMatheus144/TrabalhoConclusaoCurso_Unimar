@@ -101,3 +101,49 @@ Antes
 depois
 <img width="1072" height="720" alt="image" src="https://github.com/user-attachments/assets/1f6f55de-3ac0-45cd-ac88-5306facc3a36" />
 <img width="1625" height="720" alt="image" src="https://github.com/user-attachments/assets/52b1eb23-9c8d-41aa-9238-a4baa7715d3b" />
+
+## 🧾 7. CONCLUSÃO
+
+O desenvolvimento deste projeto proporcionou a aplicação prática de conceitos fundamentais de construção de APIs, integração com serviços externos e utilização de banco de dados NoSQL.
+
+### 📚 Conhecimentos adquiridos
+
+---
+
+### ⚠️ Dificuldades encontradas e soluções aplicadas
+
+Uma das principais dificuldades encontradas foi a integração com o banco de dados NoSQL, especialmente por se tratar de um paradigma diferente dos bancos relacionais tradicionais(sofri bastante).
+
+Outro ponto relevante foi a adaptação ao comportamento do Firestore, como o fato de não ser case sensitive em determinadas operações, o que exigiu atenção no padrão de escrita e consultas.
+
+---
+
+### 🚀 Benefícios do uso de banco NoSQL
+
+- Flexibilidade na estrutura dos dados
+- Ausência de necessidade de mapeamento rígido entre entidade e banco
+- Possibilidade de adicionar ou alterar campos dinamicamente
+
+---
+
+### ⚖️ Diferenças entre banco relacional e Firestore
+
+Durante o desenvolvimento, foi possível observar diferenças importantes:
+
+| Banco Relacional        | Firestore (NoSQL)            |
+|-------------------------|-----------------------------|
+| Estrutura rígida        | Estrutura flexível          |
+| Uso de tabelas          | Uso de coleções/documentos  |
+| Necessita migrations    | Não necessita migrations    |
+| Relacionamentos (JOIN)  | Dados geralmente desnormalizados |
+| Tipagem forte           | Estrutura dinâmica          |
+
+---
+
+### 🔮 Possíveis melhorias futuras
+
+O sistema pode ser evoluído com as seguintes melhorias:
+
+- Criação de logs estruturados
+- Implementação de testes automatizados
+- Melhor organização das queries no Firestore
