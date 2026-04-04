@@ -1,6 +1,7 @@
-﻿using Unimar.Console.Entidade;
+﻿using Google.Cloud.Firestore;
+using System.Security.Cryptography;
+using Unimar.Console.Entidade;
 using Unimar.Dominio.Repositorio;
-using Google.Cloud.Firestore;
 
 namespace Unimar.Infra.FireBase.Repositorio
 {
@@ -12,14 +13,14 @@ namespace Unimar.Infra.FireBase.Repositorio
         {
             try
             {
-                var professor = await db.Collection(Collection).AddAsync(new
+                var professor = await db.Collection(Collection).Document(entity.Id.ToString("D")).SetAsync(new
                 {
-                    id = entity.Id.ToString(),
+                    id = entity.Id.ToString("D"),
                     ativo = entity.Ativo,
                     nome = entity.Nome,
                     disciplina = entity.Disciplina,
                     email = entity.Email,
-                    datacadastro = entity.DataCadastro == null ? null : entity.DataCadastro
+                    datacadastro = entity.DataCadastro ?? DateTime.UtcNow
                 });
 
                 if (professor != null)
