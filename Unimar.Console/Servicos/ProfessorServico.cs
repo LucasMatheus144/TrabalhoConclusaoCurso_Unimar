@@ -19,6 +19,41 @@ namespace Unimar.Dominio.Servicos
             return _repositorio.ObterTodosAsync();
         }
 
+        public async Task<IEnumerable<Professor>> Buscar(string? disciplina = null, bool? ativo = null, bool ordenarPorNome = false, int? limite = null)
+        {
+            var professores = await Listar();
+
+            if (professores == null)
+            {
+                return Enumerable.Empty<Professor>();
+            }
+
+            var query = professores.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(disciplina))
+            {
+                query = query.Where(p => !string.IsNullOrWhiteSpace(p.Disciplina)
+                    && p.Disciplina.Contains(disciplina, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (ativo.HasValue)
+            {
+                query = query.Where(p => p.Ativo == ativo.Value);
+            }
+
+            if (ordenarPorNome)
+            {
+                query = query.OrderBy(p => p.Nome);
+            }
+
+            if (limite.HasValue && limite.Value > 0)
+            {
+                query = query.Take(limite.Value);
+            }
+
+            return query.ToList();
+        }
+
         public async Task<ResponseModel<Professor>> Adicionar(Professor professor)
         {
             try
@@ -105,7 +140,7 @@ namespace Unimar.Dominio.Servicos
             return await _repositorio.ExcluirAsync(id);
         }
 
-       public Task<Professor> GerPorId(Guid id)
+        public Task<Professor> GerPorId(Guid id)
         {
             return _repositorio.ObterPorIdAsync(id);
         }

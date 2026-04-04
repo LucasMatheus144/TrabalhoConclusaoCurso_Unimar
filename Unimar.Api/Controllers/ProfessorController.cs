@@ -24,9 +24,13 @@ namespace Unimar.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListarProfessores()
+        public async Task<IActionResult> ListarProfessores(
+            [FromQuery] string? disciplina,
+            [FromQuery] bool? ativo,
+            [FromQuery] bool ordenarPorNome = false,
+            [FromQuery] int? limite = null)
         {
-            var resultado = await _servico.Listar();
+            var resultado = await _servico.Buscar(disciplina, ativo, ordenarPorNome, limite);
             return Ok(resultado);
         }
 
