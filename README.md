@@ -1,7 +1,5 @@
 # 📚 Sistema de Gestão de Professores
 
-## 🎓 Trabalho de Conclusão de Curso (TCC)
-
 ---
 
 ## 📌 Descrição do Projeto
